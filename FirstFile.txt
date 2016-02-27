@@ -1,3 +1,4 @@
 This some information
 for first commit on
-My Github;
+
+New Information;
