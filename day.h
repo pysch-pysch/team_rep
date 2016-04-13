@@ -1,3 +1,5 @@
+// day.h
+
 #ifndef PROJECT_TECHNOSPHERE_C_MASTER_V2_DAY_H
 #define PROJECT_TECHNOSPHERE_C_MASTER_V2_DAY_H
 
@@ -12,7 +14,7 @@ private:
     Date date;
 public:
     Day(Date date)
-    : date(date) {}
+            : date(date) {}
     Date get_date();
     void add_case(Case &new_case);
     void del_case(int num);

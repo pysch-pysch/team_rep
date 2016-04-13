@@ -1,3 +1,6 @@
+// case.h
+// Case, associations and inheritance.
+
 #include "case.h"
 
 void Status::set_status(Status_t new_status) {
