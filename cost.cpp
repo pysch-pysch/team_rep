@@ -58,3 +58,11 @@ void CostList::delete_reg(int num) {
 void CostList::delete_irreg(int num) {
     irreg.erase(irreg.begin() + num);
 }
+
+void Purse::add(double sum) {
+    account += sum;
+}
+
+void Purse::sub(double sum) {
+    account -= sum;
+}

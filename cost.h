@@ -59,4 +59,12 @@ private:
     static const std::size_t size_block = 10; // size of block of allocated memory
 };
 
+class Purse { //TODO - оформить кошелёк в соответствии с новыми условиями
+public:
+    void add (double sum);
+    void sub (double sum);
+private:
+    double account;
+};
+
 #endif //PROJECT_TECHNOSPHERE_C_COST_H
