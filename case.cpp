@@ -1,12 +1,6 @@
-// case.cpp
-// Implementation of setters, getters and list of cases.
-
 #include "case.h"
-#include "errors.h"
-#include "enums.h"
 
 void Status::set_status(Status_t new_status) {
-    if ((new_status <= Status_t::BEGIN) || ( new_status >= Status_t::END)) throw INCORRECT_STATUS;
     type_status = new_status;
 }
 
@@ -15,7 +9,6 @@ Status_t Status::get_status() const {
 }
 
 void Priority::set_priority(Priority_t new_priority) {
-    if ((new_priority <= Priority_t::BEGIN) || ( new_priority >= Priority_t::END)) throw INCORRECT_PRIORITY;
     type_priority = new_priority;
 }
 
@@ -23,7 +16,6 @@ Priority_t Priority::get_priority() const {
     return type_priority;
 }
 void Regularity::set_regularity(Regularity_t new_regularity) {
-    if ((new_regularity <= Regularity_t::BEGIN) || ( new_regularity >= Regularity_t::END)) throw INCORRECT_REGULARITY;
     type_regularity = new_regularity;
 }
 
@@ -32,7 +24,6 @@ Regularity_t Regularity::get_regularity() const {
 }
 
 void Color::set_color(Color_t new_color) {
-    if ((new_color <= Color_t::BEGIN) || ( new_color >= Color_t::END)) throw INCORRECT_COLOR;
     type_color = new_color;
 }
 
@@ -129,7 +120,7 @@ const std::vector<std::unique_ptr<Case>> &CaseList::get_list() const {
     return list;
 }
 
-void CaseList::add_case(std::unique_ptr<Case> &matter) {
+void CaseList::add_case(std::unique_ptr<Case> &&matter) {
     list.push_back(std::move(matter));
 }
 

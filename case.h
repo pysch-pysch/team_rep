@@ -1,18 +1,11 @@
-// case.h
-// Case, associations and inheritance.
-
 #ifndef PROJECT_TECHNOSPHERE_C_CASE_H
 #define PROJECT_TECHNOSPHERE_C_CASE_H
 
 #include <string>
 #include <vector>
-#include <bits/unique_ptr.h>
 #include "date.h"
 #include "enums.h"
 
-// Declaration of accessory classes for cases.
-
-// Class for designation of case's execution
 class Status {
 public:
     Status(Status_t new_status): type_status(new_status) {}
@@ -22,7 +15,6 @@ private:
     Status_t type_status;
 };
 
-// Class for designation of case's importance.
 class Priority {
 public:
     Priority(Priority_t new_priority): type_priority(new_priority) {}
@@ -33,7 +25,6 @@ private:
     Priority_t type_priority;
 };
 
-// Class for designation of case's frequency.
 class Regularity {
 public:
     Regularity(Regularity_t new_regularity): type_regularity(new_regularity) {}
@@ -44,7 +35,6 @@ private:
     Regularity_t type_regularity;
 };
 
-// Class for display.
 class Color {
 public:
     Color(Color_t new_color): type_color(new_color) {}
@@ -55,7 +45,6 @@ private:
     Color_t type_color;
 };
 
-// Base class for tasks, notes, events, views.
 class Case {
 public:
     Case(std::map<std::string, int> &init): priority(Priority(init["Priority"])),
@@ -95,7 +84,7 @@ public:
 private:
     Status status;
     std::string description;
-    Date deadline; // necessary execution time
+    Date deadline;
 };
 
 class Note: public Case {
@@ -142,12 +131,11 @@ private:
     std::string description;
 };
 
-// List of cases for days, months and years
 class CaseList {
 public:
     CaseList() = default;
     const std::vector<std::unique_ptr<Case>> &get_list() const;
-    void add_case(std::unique_ptr<Case> &matter);
+    void add_case(std::unique_ptr<Case> &&matter);
     void delete_case(int num);
 private:
     std::vector<std::unique_ptr<Case>> list;

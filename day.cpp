@@ -1,5 +1,3 @@
-// day.cpp
-
 #include "day.h"
 
 Date Day::get_date()
@@ -9,8 +7,7 @@ Date Day::get_date()
 
 void Day::add_case(Case &new_case)
 {
-    Case *tmp = &new_case;
-    cases.add_case(std::unique_ptr<Case>(tmp));
+    cases.add_case(std::move(std::unique_ptr<Case>(&new_case)));
 }
 
 void Day::del_case(int num)
